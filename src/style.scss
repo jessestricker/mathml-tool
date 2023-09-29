@@ -1,0 +1,16 @@
+// Copyright 2023 Jesse Stricker.
+// SPDX-License-Identifier: Apache-2.0
+
+// Bootstrap
+$color-mode-type: media-query;
+$enable-rfs: false;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// KaTeX
+@import "../node_modules/katex/dist/katex.css";
+
+.katex {
+  font-size: 1.5em;
+  line-height: inherit;
+}
