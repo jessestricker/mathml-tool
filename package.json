@@ -3,6 +3,9 @@
   "license": "Apache-2.0",
   "source": "src/index.html",
   "browserslist": "defaults",
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
   "scripts": {
     "develop": "parcel serve",
     "build": "parcel build --no-source-maps --no-cache --log-level=verbose",
@@ -11,7 +14,6 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.9.3",
-    "@types/katex": "^0.16.3",
     "parcel": "^2.9.3",
     "prettier": "^3.0.3"
   },

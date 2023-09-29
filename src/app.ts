@@ -1,7 +1,7 @@
 // Copyright 2023 Jesse Stricker.
 // SPDX-License-Identifier: Apache-2.0
 
-import * as katex from "katex";
+import katex from "katex";
 
 document.addEventListener("DOMContentLoaded", () => {
   // declare elements
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showError(null);
 
     // render TeX code into preview element
-    const options: katex.KatexOptions = {
+    const options: katex.Options = {
       strict: true,
       displayMode: useDisplayMode,
     };
