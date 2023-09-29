@@ -33,8 +33,7 @@ jobs:
 
       - name: Build website
         run: >
-          npm run build -- --public-url "${{
-          steps.configure_pages.outputs.base_url }}"
+          npm run build -- --public-url .
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
