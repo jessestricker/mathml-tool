@@ -14,12 +14,12 @@
     <script type="module" src="./app.ts"></script>
   </head>
   <body>
-    <div class="container my-4">
-      <header class="border-bottom mb-4">
+    <div class="container d-flex flex-column min-vh-100">
+      <header class="border-bottom my-4">
         <h1>MathML Tool</h1>
       </header>
 
-      <main>
+      <main class="flex-grow-1">
         <div class="row gy-4">
           <div class="col-lg-6">
             <h5>T<sub>E</sub>X</h5>
@@ -52,6 +52,15 @@
           </div>
         </div>
       </main>
+
+      <footer class="border-top mt-5 py-3 text-body-secondary text-center">
+        <ul class="my-inline-list mb-0">
+          <li>&copy; 2023 Jesse Stricker</li>
+          <li>
+            <a href="https://github.com/jessestricker/mathml-tool">GitHub</a>
+          </li>
+        </ul>
+      </footer>
     </div>
   </body>
 </html>

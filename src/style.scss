@@ -14,3 +14,17 @@ $enable-rfs: false;
   font-size: 1.5em;
   line-height: inherit;
 }
+
+// Custom
+ul.my-inline-list {
+  padding-left: 0;
+  > li {
+    display: inline list-item;
+    &::marker {
+      content: " • ";
+    }
+    &:first-child::marker {
+      content: none;
+    }
+  }
+}
