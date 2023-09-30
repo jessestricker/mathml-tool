@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import katex from "katex";
+import { cleanupMathMl } from "./mathml";
 
 document.addEventListener("DOMContentLoaded", () => {
   // declare elements
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ) as HTMLInputElement;
   const previewElement = document.getElementById("preview")!;
   const outputElement = document.getElementById("output")!;
+  const cleanedOutputElement = document.getElementById("cleaned-output")!;
 
   // setup events, process initial state
   texCodeElement.addEventListener("input", onInputChanged);
@@ -48,18 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const mathElement = previewElement.querySelector("math");
     if (!mathElement) {
       outputElement.textContent = "\n";
+      cleanedOutputElement.textContent = "\n";
       return;
     }
 
-    // adjust the shown math element
-    const shownMathElement = mathElement.cloneNode(true) as MathMLElement;
-    shownMathElement.removeAttribute("xmlns");
-    const shownMathElementContent = shownMathElement.querySelector(
-      "semantics > :first-child",
-    );
-    shownMathElement.replaceChildren(shownMathElementContent!);
+    outputElement.textContent = mathElement.outerHTML;
 
-    outputElement.textContent = shownMathElement.outerHTML;
+    // show HTML of cleaned <math> element
+    const cleanedMathElement = mathElement.cloneNode(true) as MathMLElement;
+    cleanupMathMl(cleanedMathElement);
+    cleanedOutputElement.textContent = cleanedMathElement.outerHTML;
   }
 
   function showError(message: string | null) {
