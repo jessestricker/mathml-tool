@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ) as HTMLInputElement;
   const previewElement = document.getElementById("preview")!;
   const outputElement = document.getElementById("output")!;
-  const cleanedOutputElement = document.getElementById("cleaned-output")!;
 
   // setup events, process initial state
   texCodeElement.addEventListener("input", onInputChanged);
@@ -50,16 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const mathElement = previewElement.querySelector("math");
     if (!mathElement) {
       outputElement.textContent = "\n";
-      cleanedOutputElement.textContent = "\n";
       return;
     }
-
-    outputElement.textContent = mathElement.outerHTML;
 
     // show HTML of cleaned <math> element
     const cleanedMathElement = mathElement.cloneNode(true) as MathMLElement;
     cleanupMathMl(cleanedMathElement);
-    cleanedOutputElement.textContent = cleanedMathElement.outerHTML;
+    outputElement.textContent = cleanedMathElement.outerHTML;
   }
 
   function showError(message: string | null) {
