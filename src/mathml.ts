@@ -1,8 +1,41 @@
 // Copyright 2023 Jesse Stricker.
 // SPDX-License-Identifier: Apache-2.0
 
-const ATTRIBUTES_TO_RETAIN_GLOBAL = new Set(["class", "id"]);
-const ATTRIBUTES_TO_RETAIN = new Map([["math", ["display"]]]);
+const ATTRIBUTES_TO_RETAIN_GLOBAL = new Set([
+  "class",
+  "dir",
+  "displaystyle",
+  "id",
+  "nonce",
+  "scriptlevel",
+  "style",
+  "tabindex",
+]);
+const ATTRIBUTES_TO_RETAIN = new Map([
+  ["math", ["display"]],
+  ["mi", ["mathvariant"]],
+  [
+    "mo",
+    [
+      "form",
+      "lspace",
+      "rspace",
+      "stretchy",
+      "symmetric",
+      "maxsize",
+      "minsize",
+      "largeop",
+      "movablelimits",
+    ],
+  ],
+  ["mspace", ["width", "height", "depth"]],
+  ["mfrac", ["linethickness"]],
+  ["mpadded", ["width", "height", "depth", "lspace", "voffset"]],
+  ["munderover", ["accent", "accentunder"]],
+  ["mover", ["accent"]],
+  ["munder", ["accentunder"]],
+  ["mtd", ["columnspan", "rowspan"]],
+]);
 
 /**
  * Cleans up a `<math>` element tree.
