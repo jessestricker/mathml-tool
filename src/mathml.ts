@@ -43,7 +43,6 @@ const ATTRIBUTES_TO_RETAIN = new Map([
  */
 export function cleanupMathMl(mathElement: MathMLElement) {
   unwrapSemanticsElements(mathElement);
-  unwrapTopLevelMrow(mathElement);
   visitElementTree(mathElement, cleanupAttributes);
 }
 
@@ -55,20 +54,6 @@ function unwrapSemanticsElements(mathElement: Element) {
   const semanticsElements = mathElement.getElementsByTagName("semantics");
   while (semanticsElements.length !== 0) {
     replaceWithFirstChild(semanticsElements.item(0)!);
-  }
-}
-
-function unwrapTopLevelMrow(mathElement: Element) {
-  while (true) {
-    if (mathElement.childElementCount !== 1) {
-      break;
-    }
-    const onlyChild = mathElement.firstElementChild!;
-    if (onlyChild.tagName.toLowerCase() !== "mrow") {
-      break;
-    }
-    // the only child is an <mrow> element
-    replaceWithChildren(onlyChild);
   }
 }
 
@@ -97,19 +82,6 @@ function cleanupAttributes(element: Element) {
 function replaceWithFirstChild(element: Element) {
   if (element.firstElementChild !== null) {
     element.replaceWith(element.firstElementChild);
-  } else {
-    element.remove();
-  }
-}
-
-/**
- * Replaces an element with its child elements or
- * removes the element if it does not have any child elements.
- * @param element Any element.
- */
-function replaceWithChildren(element: Element) {
-  if (element.childElementCount !== 0) {
-    element.replaceWith(...element.children);
   } else {
     element.remove();
   }
