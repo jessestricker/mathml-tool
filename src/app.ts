@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // render TeX code into preview element
     const options: katex.Options = {
       strict: true,
+      output: "mathml",
       displayMode: useDisplayMode,
     };
     try {

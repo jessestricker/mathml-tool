@@ -7,15 +7,13 @@ $enable-rfs: false;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-// KaTeX
-@import "../node_modules/katex/dist/katex.css";
+// Custom
+@import "./fonts/Asana-Math.css";
 
-.katex {
-  font-size: 1.5em;
-  line-height: inherit;
+math {
+  font-family: "Asana Math", math;
 }
 
-// Custom
 ul.my-inline-list {
   padding-left: 0;
   > li {

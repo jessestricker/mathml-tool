@@ -1,0 +1,9 @@
+/**
+ * Copyright 2023 Jesse Stricker.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@font-face {
+  font-family: "Asana Math";
+  src: url("./Asana-Math.otf") format(opentype);
+}
