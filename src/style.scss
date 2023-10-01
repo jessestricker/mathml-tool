@@ -14,15 +14,29 @@ math {
   font-family: "Asana Math", math;
 }
 
+// One-off special link helper as a bridge until v6
+.link-body-secondary {
+  color: var(--#{$prefix}secondary-color)
+    if($enable-important-utilities, !important, null);
+
+  @if $link-shade-percentage != 0 {
+    &:hover,
+    &:focus {
+      color: RGBA(var(--#{$prefix}secondary-color-rgb), 1)
+        if($enable-important-utilities, !important, null);
+    }
+  }
+}
+
 ul.my-inline-list {
+  display: flex;
+  flex-direction: row;
   padding-left: 0;
-  > li {
-    display: inline list-item;
-    &::marker {
-      content: " • ";
-    }
-    &:first-child::marker {
-      content: none;
-    }
+  list-style: none;
+
+  > li:not(:first-child)::before {
+    content: "•";
+    padding-left: calc(1ch);
+    padding-right: calc(1ch);
   }
 }

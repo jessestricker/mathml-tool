@@ -22,7 +22,14 @@
       <main class="flex-grow-1">
         <div class="row gy-4">
           <div class="col-lg-6">
-            <h5>T<sub>E</sub>X</h5>
+            <div class="hstack">
+              <h5 class="me-auto">T<sub>E</sub>X</h5>
+              <a
+                class="mb-2 ms-2 link-body-secondary"
+                href="https://katex.org/docs/supported"
+                >Supported commands</a
+              >
+            </div>
             <textarea
               class="form-control mb-2 font-monospace"
               id="tex-code"
@@ -45,7 +52,25 @@
           </div>
 
           <div class="col-12">
-            <h5>MathML</h5>
+            <div class="hstack">
+              <h5 class="me-auto">MathML</h5>
+              <ul class="my-inline-list mb-2 ms-2 text-body-secondary">
+                <li>
+                  <a
+                    class="link-body-secondary"
+                    href="https://developer.mozilla.org/en-US/docs/Web/MathML"
+                    >Docs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="link-body-secondary"
+                    href="https://w3c.github.io/mathml-core"
+                    >Spec</a
+                  >
+                </li>
+              </ul>
+            </div>
             <div class="p-3 border rounded bg-body-tertiary">
               <pre class="mb-0 text-wrap"><code id="output"></code></pre>
             </div>
@@ -53,11 +78,15 @@
         </div>
       </main>
 
-      <footer class="border-top mt-5 py-3 text-body-secondary text-center">
-        <ul class="my-inline-list mb-0">
-          <li>&copy; 2023 Jesse Stricker</li>
+      <footer class="border-top mt-5 py-3 text-body-secondary">
+        <ul class="my-inline-list mb-0 justify-content-center">
+          <li>© 2023 Jesse Stricker</li>
           <li>
-            <a href="https://github.com/jessestricker/mathml-tool">GitHub</a>
+            <a
+              class="link-body-secondary"
+              href="https://github.com/jessestricker/mathml-tool">
+              GitHub</a
+            >
           </li>
         </ul>
       </footer>
